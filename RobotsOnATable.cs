@@ -11,7 +11,7 @@ namespace IOOFRobotChallenge
         EAST
     }
 
-    class Program
+    class RobotsOnATable
     {
         public static bool programFinished = false;
         static void Main()
@@ -35,12 +35,12 @@ namespace IOOFRobotChallenge
             }
         }
 
-        
-
     }
 
     public class Robot 
-    { 
+    {
+        //In this solution the robot class is a simple object that stores its position and direction. 
+        //Moving and rotating in response to whatever commands are recieved by the table.
       public int xPosition;
       public int yPosition;
       public Direction direction;
@@ -154,15 +154,13 @@ namespace IOOFRobotChallenge
             }
 
         if (input.StartsWith("MOVE"))
-            {
-
+            { 
                 //Store active robots information for later
                 Direction attemptedDirection = RobotList[ActiveRobot].direction;
                 int startingX = RobotList[ActiveRobot].xPosition;
                 int startingY = RobotList[ActiveRobot].yPosition;
-
-
                 // Check the current robots direction and position to see if the move should be ignored or not.
+
                 switch (attemptedDirection)
                 {
                     case Direction.NORTH:
@@ -203,7 +201,7 @@ namespace IOOFRobotChallenge
 
         public string Report()
         {
-            //Produces and returns a large string to inform the user about the state of the table.
+            //Produce and return a large string to inform the user about the state of the table.
 
             string RobotCount = RobotList.Count.ToString();
             string Report = "There is currently " + RobotCount + " robots on the table.\n";
